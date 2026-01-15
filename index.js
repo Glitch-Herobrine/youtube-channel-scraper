@@ -37,7 +37,7 @@ async function getVideoDetails(video) {
   }
 }
 
-async function listAllVideos(apiKey, handle) {
+export async function listAllVideos(apiKey, handle) {
   const plURL = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${handle}&key=${apiKey}`;
   const plResponse = await fetch(plURL);
   const plResponseDecoded = await plResponse.json();
