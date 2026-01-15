@@ -1,61 +1,87 @@
-# YouTube Channel Scraper
+# YouTube Channel Scraper (Handle-based)
 
 ## Overview
 
-`youtube-channel-scraper.js` is a Node.js module designed to scrape all videos from a specified YouTube channel. It retrieves comprehensive details for each video, including the title, an embed link, the timestamp of publication, and a detailed breakdown of the video description.
+**YouTube Channel Scraper** is a Node.js script that retrieves **all videos from a YouTube channel using its handle** and saves the results into a JSON file.
 
-## Prerequisites
+For each video, the script collects:
 
-*  Node.js installed on your system.
-*  An active YouTube Data API key.
-*  The Channel ID of the YouTube channel you wish to scrape.
+* Video title
+* Embed link
+* Best available thumbnail
+* Publish date
+* Full description
+
+This repository is a **fork of `mitcdh/youtube-channel-scraper`**, modified to:
+
+* Use **channel handles instead of channel IDs**
+* Reduce **YouTube Data API quota usage**
+* Provide a **simpler and more budget-friendly implementation**
+* Output results directly to a JSON file
+
+---
+
+## Requirements
+
+* **Node.js** (v18 or newer recommended)
+* A valid **YouTube Data API v3 key**
+* The **handle of the YouTube channel** (without `@`)
+
+---
 
 ## Installation
 
-1.  Clone or download `youtube-channel-scraper.js` into your Node.js project.
-2.  Ensure you set the following environment variables:
+1. Clone the repository:
 
 ```sh
-YOUTUBE_API_KEY=your_youtube_api_key
-YOUTUBE_CHANNEL_ID=your_channel_id
+git clone https://github.com/Glitch-Herobrine/youtube-channel-scraper.git
+cd youtube-channel-scraper
 ```
 
-3.  Replace `your_youtube_api_key` and `your_channel_id` with your actual API key and YouTube channel ID.
+2. Install dependencies:
+
+```sh
+npm install
+```
+
+3. Create a `.env` file in the project root and define the following variables:
+
+```env
+YOUTUBE_API_KEY=your_youtube_api_key
+YOUTUBE_HANDLE=channel_handle
+```
 
 ## Usage
 
-### As a Standalone Script
+### Run as a standalone script
 
-To run the script independently, use Node.js:
+Execute the script using Node.js:
 
-    node youtube-channel-scraper.js
-
-This command lists all videos from the specified YouTube channel and outputs the details to the console.
-
-### As an Importable Module
-
-To use `youtube-channel-scraper` in your Node.js project, import the `listAllVideos` function:
-
-```js
-const listAllVideos = require('./path/to/youtube-channel-scraper');
-
-listAllVideos()
-  .then(videos => console.log(videos))
-  .catch(error => console.error(error));
+```sh
+node index.js
 ```
 
-This function returns a promise that resolves to an array of video details.
+After execution, the script will generate an `output.json` file containing all fetched video data.
 
-## Features
+---
 
-The module retrieves the following details for each video in the specified YouTube channel:
+## Output Format
 
-*  Video Title: The title of the video.
-*  Embed Link: A direct link to embed the video.
-*  Timestamp of Publication: The publication date and time of the video.
-*  Video Description: The whole video description.
+The `output.json` file contains an array of objects in the following format:
 
-## Limitations
+```json
+{
+  "title": "Video title",
+  "embedLink": "https://www.youtube.com/embed/VIDEO_ID",
+  "thumbnailUrl": "https://i.ytimg.com/...",
+  "publishedAt": "2026-01-01T12:00:00Z",
+  "description": "Full video description"
+}
+```
 
-*  Be mindful of the quota limits associated with your YouTube Data API key.
-*  Pagination for channels with a very large number of videos is not specifically handled.
+---
+
+## Notes
+
+* The highest available thumbnail resolution is selected automatically.
+* Be mindful of YouTube Data API quota limits.

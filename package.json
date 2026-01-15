@@ -1,0 +1,30 @@
+{
+  "name": "youtube-channel-scraper",
+  "version": "1.0.0",
+  "description": "`youtube-channel-scraper.js` is a Node.js module designed to scrape all videos from a specified YouTube channel. It retrieves comprehensive details for each video, including the title, an embed link, the timestamp of publication, and a detailed breakdown of the video description.",
+  "main": "youtube-channel-scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glitch-Herobrine/youtube-channel-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Glitch-Herobrine/youtube-channel-scraper/issues"
+  },
+  "homepage": "https://github.com/Glitch-Herobrine/youtube-channel-scraper#readme",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "prettier": "^3.8.0",
+    "typescript": "^5.9.3"
+  }
+}
