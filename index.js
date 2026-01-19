@@ -30,7 +30,7 @@ async function getVideoDetails(video) {
 
   return {
     title: video.title,
-    embedLink: `https://www.youtube.com/embed/${videoId}`,
+    videoId: videoId,
     thumbnailUrl: thumbnailUrl,
     publishedAt: video.publishedAt,
     description: video.description

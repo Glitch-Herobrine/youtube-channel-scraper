@@ -72,7 +72,7 @@ The `output.json` file contains an array of objects in the following format:
 ```json
 {
   "title": "Video title",
-  "embedLink": "https://www.youtube.com/embed/VIDEO_ID",
+  "videoId": "VIDEO_ID",
   "thumbnailUrl": "https://i.ytimg.com/...",
   "publishedAt": "2026-01-01T12:00:00Z",
   "description": "Full video description"
